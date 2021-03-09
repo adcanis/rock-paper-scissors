@@ -4,8 +4,7 @@ let playerScore = 0;
 let computerScore = 0;
 let result = "";
 let buttons = document.querySelectorAll('button');
-let computerIcon = document.querySelector('computerDisplay');
-let playerIcon = document.querySelector('playerDisplay');
+
 
 //Computer 
 
@@ -14,33 +13,27 @@ function computerPlay() {
     return options[Math.floor(Math.random() * options.length)];
 } 
 
-//Buttons
-
-function disableButtons() {
-    buttons.forEach(elem => {
-        elem.disabled.true
-    })
-}
-
 //Game 
 
 function game(playerInput) {
     let computerInput = computerPlay();
+    let playerIcon = document.querySelector('#playerDisplay');
+    let computerIcon = document.querySelector('#computerDisplay');
 
     if (playerInput === 'rock' && computerInput === 'scissors') {
+        playerIcon = playerDisplay.innerHTML = 'rock';
+        computerIcon = computerDisplay.innerHTML = 'scissors';
         playerScore += 1;
-        playerIcon = playerDisplay.classList.add('fa-hand-rock');
-        computerIcon = computerDisplay.classList.add('fa-hand-scissors');
         result = ('Rock beats scissors, you win!')
     } else if (playerInput === 'paper' && computerInput == 'rock') {
+        playerIcon = playerDisplay.innerHTML = 'paper';
+        computerIcon = computerDisplay.innerHTML = 'rock';
         playerScore += 1;
-        playerIcon = playerDisplay.classList.add('fa-hand-paper');
-        computerIcon = computerDisplay.classList.add('fa-hand-rock');
         result = ('Paper covers rock, you win!'); 
     } else if (playerInput === 'scissors' && computerInput === 'paper') {
+        playerIcon = playerDisplay.innerHTML = 'scissors';
+        computerIcon = computerDisplay.innerHTML = 'paper';
         playerScore += 1;
-        playerIcon = playerDisplay.classList.add('fa-hand-scissors');
-        computerIcon = computerDisplay.classlist.add('fa-hand-paper');
         result = ('Scissors cut paper, you win!');
     } else if (playerInput === computerInput) {
         result = ('its a tie...') 
@@ -60,6 +53,7 @@ function game(playerInput) {
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         game(button.value)
+        
     })
 })
 
