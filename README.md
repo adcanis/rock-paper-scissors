@@ -1,2 +1,2 @@
 # rock-paper-scissors
-the Odin project, rock paper scissors task
+This is my first attempt implementing javascript as per the Odin Prpject foundations. 
