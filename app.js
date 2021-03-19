@@ -1,38 +1,44 @@
 //Global Settings
-
 let playerScore = 0;
 let computerScore = 0;
 let result = "";
 let buttons = document.querySelectorAll('button');
 
 
-//Computer 
-
+//Computer
 function computerPlay() {
     let options = ['rock', 'paper', 'scissors'];
     return options[Math.floor(Math.random() * options.length)];
 } 
 
 //Game 
-
 function game(playerInput) {
     let computerInput = computerPlay();
     let playerIcon = document.querySelector('#playerDisplay');
     let computerIcon = document.querySelector('#computerDisplay');
+    if (playerInput === 'rock') {
+        playerIcon = playerDisplay.innerHTML = 'rock';
+    } else if (playerInput === 'paper') {
+        playerIcon = playerDisplay.innerHTML = 'paper';
+    } else if (playerInput === 'scissors') {
+        playerIcon = playerDisplay.innerHTML = 'scissors';
+    }
+
+    if (computerInput === 'rock') {
+        computerIcon = computerDisplay.innerHTML = 'rock';
+    } else if (computerInput === 'paper') {
+        computerIcon = computerDisplay.innerHTML = 'paper';
+    } else if (computerInput === 'scissors') {
+        computerIcon = computerDisplay.innerHTML = 'scissors';
+    }
 
     if (playerInput === 'rock' && computerInput === 'scissors') {
-        playerIcon = playerDisplay.innerHTML = 'rock';
-        computerIcon = computerDisplay.innerHTML = 'scissors';
         playerScore += 1;
         result = ('Rock beats scissors, you win!')
     } else if (playerInput === 'paper' && computerInput == 'rock') {
-        playerIcon = playerDisplay.innerHTML = 'paper';
-        computerIcon = computerDisplay.innerHTML = 'rock';
         playerScore += 1;
         result = ('Paper covers rock, you win!'); 
     } else if (playerInput === 'scissors' && computerInput === 'paper') {
-        playerIcon = playerDisplay.innerHTML = 'scissors';
-        computerIcon = computerDisplay.innerHTML = 'paper';
         playerScore += 1;
         result = ('Scissors cut paper, you win!');
     } else if (playerInput === computerInput) {
@@ -40,16 +46,23 @@ function game(playerInput) {
     } else {
         computerScore += 1;
         result = ('computer wins this round');
+        
     } if (playerScore === 5) {
         result = ('you win this game!')
+        computerDisplay.innerHTML = '';
+        playerDisplay.innerHTML = '';
         alert('you win this game!')
+        location.reload();
+
     } else if (computerScore === 5) {
         result = ('you lost the game....refresh to play again');
+        computerDisplay.innerHTML = '';
+        playerDisplay.innerHTML = '';
         alert('you lost the game...refresh to play again')
+        location.reload();
     }
 
 }
-
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         game(button.value)
