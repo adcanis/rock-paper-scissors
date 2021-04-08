@@ -17,19 +17,19 @@ function game(playerInput) {
     let playerIcon = document.querySelector('#playerDisplay');
     let computerIcon = document.querySelector('#computerDisplay');
     if (playerInput === 'rock') {
-        playerIcon = playerDisplay.innerHTML = 'rock';
+        playerIcon = playerDisplay.setAttribute('class', 'fas fa-hand-rock');
     } else if (playerInput === 'paper') {
-        playerIcon = playerDisplay.innerHTML = 'paper';
+        playerIcon = playerDisplay.setAttribute('class', 'fas fa-hand-paper');
     } else if (playerInput === 'scissors') {
-        playerIcon = playerDisplay.innerHTML = 'scissors';
+        playerIcon = playerDisplay.setAttribute('class', 'fas fa-hand-scissors');
     }
 
     if (computerInput === 'rock') {
-        computerIcon = computerDisplay.innerHTML = 'rock';
+        computerIcon = computerDisplay.setAttribute('class', 'fas fa-hand-rock');
     } else if (computerInput === 'paper') {
-        computerIcon = computerDisplay.innerHTML = 'paper';
+        computerIcon = computerDisplay.setAttribute('class', 'fas fa-hand-paper');
     } else if (computerInput === 'scissors') {
-        computerIcon = computerDisplay.innerHTML = 'scissors';
+        computerIcon = computerDisplay.setAttribute('class', 'fas fa-hand-scissors');
     }
 
     if (playerInput === 'rock' && computerInput === 'scissors') {
